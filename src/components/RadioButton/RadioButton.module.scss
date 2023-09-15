@@ -1,0 +1,80 @@
+//круг
+.radio {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    // margin-right: 8px;
+    // width:  16px;
+    // height: 16px;
+
+    // margin-bottom: 10px;
+    // &:last-child {
+    //     margin-bottom: 0;
+    // }
+}
+
+.radio__radio {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    width:  16px !important;
+    height: 16px !important;
+    margin: 0;
+
+    &:checked + span::before {
+        border-color: #000;
+    }
+
+    &:checked + .radio__radioIcon .radio__radioIconInside {
+        display: block;
+    }
+}
+
+.radio__radioIcon {
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    user-select: none;
+    width: 16px;
+    height: 16px;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        box-sizing: border-box;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #000;
+        border-radius: 50%;
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 16px 16px;
+    }
+}
+
+.radio__radioIconInside {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #000;
+}
+
+.text {
+    transition: .3s;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+}

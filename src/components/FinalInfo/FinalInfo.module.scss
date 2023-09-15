@@ -1,0 +1,33 @@
+.finalInfo {
+    &.inactive {
+        display: none;
+    }
+}
+
+.finalInfo__main {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 0 6px 0;
+}
+
+.finalInfo__text {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0 0 6px 0;
+} 
+
+.finalInfo__btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: absolute;
+    bottom: 25px;
+    right: 15px;
+    left: 15px;
+    width: calc(100% - 30px);
+} 

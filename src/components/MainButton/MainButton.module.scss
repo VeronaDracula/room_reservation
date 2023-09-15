@@ -1,0 +1,19 @@
+.btn {
+    border-radius: 4px;
+    background: #3B82F6;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    padding: 10px 14px;
+    max-width: 128px;
+    width: 100%;
+    cursor: pointer;
+
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: black;
+        }
+    }
+}
