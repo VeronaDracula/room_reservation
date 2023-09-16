@@ -26,6 +26,30 @@
   margin: 0 0 20px 0;
 }
 
-.notification__btn {
 
+
+
+.notification__btn {
+  max-width: 300px;
+}
+
+@media screen and (max-width: 600px) {
+  .notification {
+    padding-top: 150px;
+  }
+
+  .notification__btns {
+    background-color: #F9FAFB;
+    position: fixed;
+    padding: 10px 10px 10px 10px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .notification__btn {
+    max-width: 100%;
+  }
 }

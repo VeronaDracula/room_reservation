@@ -1,14 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
-// import { useDispatch } from "react-redux";
-// import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
 import styles from './Content.module.scss';
 
-// import { getTest } from '../../Redux/asyncThunks/getTest';
-// import { deletePost } from '../../Redux/asyncThunks/deletePost';
-// import { getTestsList } from '../../Redux/selectors/selector';  FinalInfo
-
-import Loader from '../../Loader';
 import FormPrice from '../FormPrice/FormPrice';
 import FormData from '../FormData/FormData';
 import FinalInfo from '../FinalInfo/FinalInfo';
@@ -18,7 +11,6 @@ import Notification from '../Notification/Notification';
 
 function Content() {
 
-    const [isLoader, setIsLoader] = useState(false);
 
     const [priceForm, setPriceForm] = useState(true);
     const [dataForm, setDataForm] = useState(false);
@@ -27,11 +19,6 @@ function Content() {
 
     const [titles, setTitles] = useState(true);
     const [title, setTitle] = useState('Расчет стоимости');
-
-    //   const postsList = useSelector(getTestsList);
-    // console.log(postsList)
-
-    //   const dispatch = useDispatch();
 
     function showPriceForm() {
         setPriceForm(true);
@@ -69,13 +56,6 @@ function Content() {
 
         setTitles(false);
     }
-
-
-    useEffect(() => {
-
-
-    }, [])
-
 
 
     return (

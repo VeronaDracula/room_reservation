@@ -68,3 +68,9 @@
     cursor: pointer;
 }
 
+
+@media screen and (max-width: 600px) {
+    .inputNumber {
+        max-width: 100%;
+    }
+}

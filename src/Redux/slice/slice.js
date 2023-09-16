@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    isLoading: false,
     data: {
         amountOfAdults: 1,
         amountOfChildren: 0,
@@ -12,11 +11,10 @@ const initialState = {
         insurance: false,
         total: 1800,
 
-        surname: '',
-        name: '',
+        surname: {error: false, text: ''},
+        name: {error: false, text: ''},
         nameOfFather: '',
-        phone: '',
-        date: ''
+        phone: {error: false, text: ''},
     },
 };
 
@@ -25,40 +23,15 @@ export const testSlice = createSlice({
     initialState,
     reducers: {
         setData: (state, action) => {
-            // state.data[action.payload.type] = action.payload.value;
             if(action.payload.type === 'removeDataClose') {
-                state.data = initialState.testData;
+                state.data = initialState;
             }
             else {
                 state.data[action.payload.type] = action.payload.value;
             }
         },
-
-
-
-        // setTest: (state, action) => {
-        // state.posts = [...action.payload]; 
-        // },
-
-        // deletePostSlice: (state, action) => {
-        //     state.posts = state.posts.filter((item) => item.id !== action.payload);
-        // },
-    }, 
-    // extraReducers: (builder) => {
-    //   builder
-    //     .addCase(getCompanyInfo.pending, (state) => {
-    //       state.isLoading = true;
-    //     })
-    //     .addCase(getCompanyInfo.fulfilled, (state) => {
-    //       state.isLoading = false;
-    //     })
-    //     .addCase(getCompanyInfo.rejected, (state) => {
-    //       state.isLoading = false;
-    //     })
-    // }
+    }
 })
 
 export const { actions: testActions } = testSlice;
 export const { reducer: testReducer } = testSlice;
-
-// export default testSlice.reducer

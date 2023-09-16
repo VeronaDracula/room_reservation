@@ -7,9 +7,12 @@ import styles from './FormPrice.module.scss';
 import { testActions } from "../../Redux/slice/slice";
 
 import InputNumber from '../InputNumber/InputNumber';
+import InputSelect from '../InputSelect/InputSelect';
 import RadioButton from '../RadioButton/RadioButton';
 import Checkbox from '../Checkbox/Checkbox';
+import CheckboxSlider from '../CheckboxSlider/CheckboxSlider';
 import MainButton from '../MainButton/MainButton';
+
 
 function FormPrice(props) {
 
@@ -54,7 +57,6 @@ function FormPrice(props) {
 
         dispatch(testActions.setData({ value: result * nights, type: 'total' }));
     }
-
 
 
 
@@ -103,7 +105,6 @@ function FormPrice(props) {
     }
 
 
-
     function next() {
         showDataForm();
     }
@@ -111,66 +112,86 @@ function FormPrice(props) {
 
 
 
-
-
     return (
         <div className={`${styles.price} ${!status ? styles.inactive : ''}`}>
 
-            <p className={styles.price__text}>Количество взрослых</p>
-            <InputNumber changeHandler={handlerAdults}
-                valueInput={adults}
-                 minValue={1}
-            />
-
-            <p className={styles.price__text}>Количество детей от 5 до 12 лет</p>
-            <InputNumber
-                changeHandler={handlerChildren}
-                valueInput={children} />
-
-            <p className={styles.price__text}>Количество детей до 5 лет</p>
-            <InputNumber
-                changeHandler={handlerChildrenFive}
-                valueInput={childrenFive}
-                maxValue={maxChildrenFive()}/>
-
-            <p className={styles.price__text}>Тип номера</p>
-            <div className={styles.price__list}>
-                <RadioButton
-                    defaultChecked={true}
-                    onChange={selectType}
-                    name={'type'}
-                    value={'Эконом'}>
-                    Эконом
-                </RadioButton>
-
-                <RadioButton
-                    onChange={selectType}
-                    name={'type'}
-                    value={'Стандарт'}>
-                    Стандарт
-                </RadioButton>
-
-                <RadioButton
-                    onChange={selectType}
-                    name={'type'}
-                    value={'Люĸс'}>
-                    Люкс
-                </RadioButton>
-
-
+            <div className={styles.price__box}>
+                <p className={styles.price__text}>Количество взрослых</p>
+                <InputNumber changeHandler={handlerAdults}
+                             valueInput={adults}
+                             minValue={1}
+                />
             </div>
 
-            <p className={styles.price__text}>Количество ночей</p>
-            <InputNumber
-                changeHandler={handlerNights}
-                valueInput={nights}
-                minValue={1}/>
+            <div className={styles.price__box}>
+                <p className={styles.price__text}>Количество детей от 5 до 12 лет</p>
+                <InputNumber
+                    changeHandler={handlerChildren}
+                    valueInput={children} />
+            </div>
 
-            <p className={styles.price__text}>Страховка</p>
-            <Checkbox checked={insuranceStatus} handleCheckbox={handleCheckbox} />
 
-            <p className={styles.price__text}>Итого:</p>
-            <p className={styles.price__total}>{total} ₽</p>
+            <div className={styles.price__box}>
+                <p className={styles.price__text}>Количество детей до 5 лет</p>
+                <InputNumber
+                    changeHandler={handlerChildrenFive}
+                    valueInput={childrenFive}
+                    maxValue={maxChildrenFive()}/>
+            </div>
+
+
+            <div className={styles.price__box}>
+                <p className={styles.price__text}>Тип номера</p>
+
+                <InputSelect  changeHandler={selectType}/>
+
+                <div className={styles.price__list}>
+                    <RadioButton
+                        defaultChecked={true}
+                        onChange={selectType}
+                        name={'type'}
+                        value={'Эконом'}>
+                        Эконом
+                    </RadioButton>
+
+                    <RadioButton
+                        onChange={selectType}
+                        name={'type'}
+                        value={'Стандарт'}>
+                        Стандарт
+                    </RadioButton>
+
+                    <RadioButton
+                        onChange={selectType}
+                        name={'type'}
+                        value={'Люĸс'}>
+                        Люкс
+                    </RadioButton>
+                </div>
+            </div>
+
+
+
+            <div className={styles.price__box}>
+                <p className={styles.price__text}>Количество ночей</p>
+                <InputNumber
+                    changeHandler={handlerNights}
+                    valueInput={nights}
+                    minValue={1}/>
+            </div>
+
+
+            <div className={`${styles.price__box} ${styles.checkbox}`}>
+                <p className={styles.price__text}>Страховка</p>
+                <Checkbox checked={insuranceStatus} handleCheckbox={handleCheckbox} />
+                <CheckboxSlider checked={insuranceStatus} handleCheckbox={handleCheckbox}/>
+            </div>
+
+
+            <div className={styles.price__box}>
+                <p className={styles.price__text}>Итого:</p>
+                <p className={styles.price__total}>{total} ₽</p>
+            </div>
 
             <div className={styles.price__btns}>
                 <MainButton text='Далее' action={next} />

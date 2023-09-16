@@ -1,19 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-// import { useDispatch } from "react-redux";
-// import { useSelector } from 'react-redux';
 
 import styles from './Checkbox.module.scss';
 
-// import { getTest } from '../../Redux/asyncThunks/getTest';
-// import { deletePost } from '../../Redux/asyncThunks/deletePost';
-// import { getTestsList } from '../../Redux/selectors/selector';
-
-import Loader from '../../Loader';
-import FormPrice from '../FormPrice/FormPrice';
-
-
-
-
+//checkbox
 function Checkbox(props) {
 
     const {
@@ -22,19 +11,13 @@ function Checkbox(props) {
     } = props;
 
 
-
-
-
-
-
-
     return (
-        <div className={styles.documentPopup__agreement} onClick={handleCheckbox}>
-            <div className={styles.documentPopup__agreementCover}></div>
-            <label className={styles.documentPopup__agreementLabelCheckbox}>
-                <input className={styles.documentPopup__checkbox} type="checkbox"
+        <div className={styles.checkbox} onClick={handleCheckbox}>
+            <div className={styles.checkbox__cover}></div>
+            <label className={styles.checkbox__labelCheckbox}>
+                <input className={styles.checkbox__checkbox} type="checkbox"
                     name="" checked={checked} onChange={handleCheckbox} />
-                <span className={styles.documentPopup__agreementCheckboxIcon}></span>
+                <span className={styles.checkbox__checkboxIcon}></span>
             </label>
         </div>
     );

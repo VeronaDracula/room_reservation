@@ -12,3 +12,10 @@
     width: 100%;
     cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+    .btn {
+        max-width: 100%;
+        order: 1;
+    }
+}

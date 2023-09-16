@@ -10,7 +10,8 @@ function MainButton(props) {
 
     const {
         text,
-        action
+        action,
+        styleClass = '',
     } = props;
 
 
@@ -18,7 +19,7 @@ function MainButton(props) {
 
 
     return (
-        <button className={styles.btn} onClick={action}>{text}</button>
+        <button className={`${styles.btn} ${styleClass}`} onClick={action}>{text}</button>
     );
 }
 

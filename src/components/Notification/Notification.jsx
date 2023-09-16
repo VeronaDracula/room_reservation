@@ -32,7 +32,9 @@ function Notification(props) {
 
             <p className={styles.notification__text}>Заказ успешно оплачен.</p>
 
-            <MainButton className={styles.notification__btn} text='Забронировать еще' action={next} />
+            <div className={styles.notification__btns}>
+                <MainButton styleClass={styles.notification__btn} text='Забронировать еще' action={next} />
+            </div>
         </div>
     );
 }

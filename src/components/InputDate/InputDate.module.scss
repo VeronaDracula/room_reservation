@@ -1,0 +1,67 @@
+.inputDate {
+  max-width: 308px;
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  &.error {
+    .inputDate__input {
+      color: #EF4444;
+      border: 1px solid #FECACA;
+      background: #FEF2F2;
+    }
+
+    .inputDate__error {
+      display: inline-block;
+    }
+  }
+}
+
+.inputDate__input {
+  border-radius: 4px;
+  border: 1px solid #E5E7EB;
+  background: #FFF;
+  padding: 7px 30px 7px 8px;
+  width: 100%;
+  box-sizing: border-box;
+
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+
+  &:focus {
+    border: 1px solid #E5E7EB;
+    outline: none;
+  }
+}
+
+
+.inputDate__icon {
+  position: absolute;
+  right: 8px;
+  top: 7px;
+  width: 18px;
+  height: 18px;
+  background-image: url('../../images/date.svg');
+  background-size: cover;
+}
+
+
+.inputDate__error {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  color: #EF4444;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+@media screen and (max-width: 600px) {
+  .inputDate {
+    max-width: 100%;
+  }
+}

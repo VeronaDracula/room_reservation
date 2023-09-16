@@ -11,25 +11,26 @@ function Input(props) {
         styleClass = '',
         changeHandler,
         valueInput,
-        errorStartus,
+        errorStatus,
+        errorText = ''
     } = props;
 
 
     function countSymbols(e) {
-
         changeHandler(e.target.value, false);
     }
 
 
     return (
-        <div className={`${styles.input} ${errorStartus ? styles.error : ""}`}>
+        <div className={`${styles.input} ${errorStatus ? styles.error : ""}`}>
 
             <input className={`${styles.input__input} ${styleClass}`}
+                type='text'
                 value={valueInput || ""}
                 placeholder={placeholder}
-                onInput={(e) => { countSymbols(e) }} maxLength={maxCount}></input>
+                onInput={(e) => { countSymbols(e) }} maxLength={maxCount}/>
 
-            <span className={`${styles.input__error} ${styleClass}`}>Допущена ошибка</span>
+            <span className={`${styles.input__error} ${styleClass}`}>{errorText}</span>
         </div>
 
     );

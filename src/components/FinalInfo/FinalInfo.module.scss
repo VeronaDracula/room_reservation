@@ -42,4 +42,27 @@
     right: 15px;
     left: 15px;
     width: calc(100% - 30px);
-} 
+}
+
+.inactive {
+    display: none;
+}
+
+
+@media screen and (max-width: 600px) {
+    .finalInfo {
+        height: 100%;
+    }
+
+    .finalInfo__btns {
+        flex-direction: column;
+        background-color: #F9FAFB;
+        position: fixed;
+        padding: 10px 10px 10px 10px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

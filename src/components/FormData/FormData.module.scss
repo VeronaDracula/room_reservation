@@ -1,7 +1,8 @@
 .data {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
 
     &.inactive {
         display: none;
@@ -9,9 +10,9 @@
 }
 
 .data__box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
 }
 
 
@@ -35,6 +36,11 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 18px;
+
+    &:focus {
+        border: 1px solid #E5E7EB;
+        outline: none;
+    }
 }
 
 .data__btns {
@@ -47,4 +53,25 @@
     right: 15px;
     left: 15px;
     width: calc(100% - 30px);
-} 
+}
+
+
+@media screen and (max-width: 600px) {
+    .data__box {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .data__btns {
+        flex-direction: column;
+        background-color: #F9FAFB;
+        position: fixed;
+        padding: 10px 10px 10px 10px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
