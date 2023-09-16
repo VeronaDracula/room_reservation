@@ -3,13 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     isLoading: false,
     data: {
-        amountOfAdults: 0,
+        amountOfAdults: 1,
         amountOfChildren: 0,
         amountOfChildrenFive: 0,
-        typeOfRoom: '',
-        amountOfNights: 0,
+        typeOfRoom: 'Эконом',
+        typePrice: 1800,
+        amountOfNights: 1,
         insurance: false,
-        total: 0,
+        total: 1800,
 
         surname: '',
         name: '',
@@ -24,8 +25,16 @@ export const testSlice = createSlice({
     initialState,
     reducers: {
         setData: (state, action) => {
-            state.data[action.payload.type] = action.payload.value;
+            // state.data[action.payload.type] = action.payload.value;
+            if(action.payload.type === 'removeDataClose') {
+                state.data = initialState.testData;
+            }
+            else {
+                state.data[action.payload.type] = action.payload.value;
+            }
         },
+
+
 
         // setTest: (state, action) => {
         // state.posts = [...action.payload]; 

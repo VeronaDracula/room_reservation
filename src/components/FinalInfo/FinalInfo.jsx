@@ -11,7 +11,8 @@ function FinalInfo(props) {
 
     const {
         status,
-        showDataForm
+        showDataForm,
+        showNotification
     } = props;
 
 
@@ -28,16 +29,29 @@ function FinalInfo(props) {
     const nameOfFather = useSelector((state) => state?.test?.data?.nameOfFather || '');
     const phone = useSelector((state) => state?.test?.data?.phone || '');
     const date = useSelector((state) => state?.test?.data?.date || '');
+    const total = useSelector((state) => state?.test?.data?.total || 0);
+
+    const [insurance, setInsurance] = useState('');
 
 
     useEffect(() => {
+        activeInsurance();
+
+    }, [insuranceStatus])
 
 
-    }, [])
-
+    function activeInsurance () {
+        if(insuranceStatus === true) {
+            setInsurance('Страховка включена');
+        }
+        else {
+            setInsurance('');
+        }
+    }
 
 
     function next() {
+        showNotification();
 
     }
 
@@ -46,17 +60,17 @@ function FinalInfo(props) {
     return (
         <div className={`${styles.finalInfo} ${!status ? styles.inactive : ''}`}>
 
-            <h3 className={styles.finalInfo__main}>Иванов Иван Иванович</h3>
+            <h3 className={styles.finalInfo__main}>{surname} {name} {nameOfFather}</h3>
             <p className={styles.finalInfo__text}>+7 999 123 45-67</p>
-            <p className={styles.finalInfo__text}>+7 999 123 45-67</p>
-            <p className={styles.finalInfo__text}>+7 999 123 45-67</p>
-            <p className={styles.finalInfo__text}>+7 999 123 45-67</p>
-
+            <p className={styles.finalInfo__text}>Номер «{typeOfRoom}» на {nights} ночей</p>
+            <p className={styles.finalInfo__text}>{adults} взрослых, {children} ребенка от 5 до 12 лет и {childrenFive} ребенок младше 5 лет</p>
+            <p className={styles.finalInfo__text}>{insurance}</p>
+            <p className={`${styles.finalInfo__text} ${styles.last}`}>К оплате <span className={styles.finalInfo__textMain}>{total} ₽</span></p>
 
 
             <div className={styles.finalInfo__btns}>
-                <BackButton text='Назад к расчету стоимости' action={showDataForm} />
-                <MainButton text='Далее' action={next} />
+                <BackButton text='Назад к данным покупателя' action={showDataForm} />
+                <MainButton text='Оплатить' action={next} />
             </div>
 
         </div>

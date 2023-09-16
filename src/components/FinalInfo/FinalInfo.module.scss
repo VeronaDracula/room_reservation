@@ -18,7 +18,19 @@
     font-weight: 400;
     line-height: normal;
     margin: 0 0 6px 0;
-} 
+
+    &.last {
+        padding-top: 14px;
+    }
+}
+
+.finalInfo__textMain {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+}
+
 
 .finalInfo__btns {
     display: flex;

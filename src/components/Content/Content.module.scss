@@ -6,6 +6,16 @@
     padding: 16px 20px;
     box-sizing: border-box;
     position: relative;
+
+    &.notification {
+        .content__title {
+            display: none;
+        }
+
+        .content__subtitle {
+            display: none;
+        }
+    }
 }
 
 .content__title {
