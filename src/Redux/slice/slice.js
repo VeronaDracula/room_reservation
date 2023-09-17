@@ -15,6 +15,7 @@ const initialState = {
         name: {error: false, text: ''},
         nameOfFather: '',
         phone: {error: false, text: ''},
+        date: {error: false, text: ''}
     },
 };
 
@@ -24,7 +25,7 @@ export const testSlice = createSlice({
     reducers: {
         setData: (state, action) => {
             if(action.payload.type === 'removeDataClose') {
-                state.data = initialState;
+                state.data = initialState.data;
             }
             else {
                 state.data[action.payload.type] = action.payload.value;

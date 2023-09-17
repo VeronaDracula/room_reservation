@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { useSelector } from 'react-redux';
 
@@ -29,13 +29,14 @@ function FormData(props) {
     const nameOfFather = useSelector((state) => state?.test?.data?.nameOfFather || '');
     const phone = useSelector((state) => state?.test?.data?.phone?.text || '');
     const errorPhone = useSelector((state) => state?.test?.data?.phone?.error || false);
+    const date = useSelector((state) => state?.test?.data?.date?.text || '');
+    const errorDate = useSelector((state) => state?.test?.data?.date?.error || false);
 
-    const [dateError, setDateError] = useState(false);
 
 
     useEffect(() => {
         const today = new Date();
-        localStorage.setItem('date', JSON.stringify(subtractYears(today, 18)));
+        dispatch(testActions.setData({ value: {error: false, text: JSON.stringify(subtractYears(today, 18))}, type: 'date' }));
     }, [])
 
 
@@ -62,7 +63,7 @@ function FormData(props) {
     }
 
     const handlerDate = (text) => {
-        localStorage.setItem('date', JSON.stringify(text));
+        dispatch(testActions.setData({ value: {error: false, text: JSON.stringify(text)}, type: 'date' }));
     }
 
 
@@ -78,13 +79,12 @@ function FormData(props) {
         else if(phone === '') {
             dispatch(testActions.setData({ value: {error: true, text: ''}, type: 'phone' }));
         }
-        else if(!JSON.parse(localStorage.getItem('date'))) {
-            setDateError(true);
+        else if(date === '') {
+            dispatch(testActions.setData({ value: {error: true, text: ''}, type: 'date' }));
         }
 
         else {
             showFinalInfo();
-            setDateError(false);
         }
     }
 
@@ -133,8 +133,8 @@ function FormData(props) {
                 <p className={styles.data__text}>Дата рождения</p>
                 <InputDate
                     changeHandler={handlerDate}
-                    valueInput={phone}
-                    errorStatus={dateError}
+                    // valueInput={date}
+                    errorStatus={errorDate}
                 />
             </div>
 

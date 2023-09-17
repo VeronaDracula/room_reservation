@@ -23,14 +23,6 @@ function InputSelect(props) {
                 <option value="Стандарт">Стандарт</option>
                 <option value="Люĸс">Люĸс</option>
             </select>
-
-            {/*<input className={`${styles.inputSelect__input} ${styleClass}`}*/}
-            {/*       type='select'*/}
-            {/*       value={valueInput || ""}*/}
-            {/*       placeholder={placeholder}*/}
-            {/*       onInput={(e) => { countSymbols(e) }} maxLength={maxCount}/>*/}
-
-
         </div>
 
     );

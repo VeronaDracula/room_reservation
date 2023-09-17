@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import styles from './InputNumber.module.scss';
 
@@ -57,9 +57,6 @@ function InputNumber(props) {
                 </div>
             </div>
 
-
-
-            {/*<span className={`${styles.inputNumber__error} ${styleClass}`}>Допущена ошибка</span>*/}
         </div>
 
     );

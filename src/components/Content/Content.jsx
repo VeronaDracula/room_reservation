@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState} from 'react';
 
 import styles from './Content.module.scss';
 
@@ -11,7 +11,6 @@ import Notification from '../Notification/Notification';
 
 function Content() {
 
-
     const [priceForm, setPriceForm] = useState(true);
     const [dataForm, setDataForm] = useState(false);
     const [finalInfo, setFinalInfo] = useState(false);
@@ -19,6 +18,7 @@ function Content() {
 
     const [titles, setTitles] = useState(true);
     const [title, setTitle] = useState('Расчет стоимости');
+
 
     function showPriceForm() {
         setPriceForm(true);

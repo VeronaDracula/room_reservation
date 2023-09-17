@@ -1,9 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-// import { useDispatch } from "react-redux";
-// import { useSelector } from 'react-redux';
+import React from 'react';
 
 import styles from './BackButton.module.scss';
-
 
 
 function BackButton(props) {
@@ -12,8 +9,6 @@ function BackButton(props) {
         text,
         action
     } = props;
-
-
 
 
 

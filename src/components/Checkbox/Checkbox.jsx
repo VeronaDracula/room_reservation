@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 
 import styles from './Checkbox.module.scss';
 
-//checkbox
 function Checkbox(props) {
 
     const {

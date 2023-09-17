@@ -23,14 +23,13 @@ function FormPrice(props) {
 
     const dispatch = useDispatch();
 
-    const adults = useSelector((state) => state?.test?.data?.amountOfAdults || 1);
+    const adults = useSelector((state) => state?.test?.data?.amountOfAdults);
     const children = useSelector((state) => state?.test?.data?.amountOfChildren || 0);
     const childrenFive = useSelector((state) => state?.test?.data?.amountOfChildrenFive || 0);
     const nights = useSelector((state) => state?.test?.data?.amountOfNights || 1);
     const insuranceStatus = useSelector((state) => state?.test?.data?.insurance || false);
-    // const typeOfRoom = useSelector((state) => state?.test?.data?.typeOfRoom || false);
     const typePrice = useSelector((state) => state?.test?.data?.typePrice || 1800);
-    const total = useSelector((state) => state?.test?.data?.total || 0);
+    const total = useSelector((state) => state?.test?.data?.total || 1800);
 
     useEffect(() => {
 

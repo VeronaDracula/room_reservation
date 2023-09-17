@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useDispatch } from "react-redux";
+import React from 'react';
 
 import styles from './Notification.module.scss';
 
 import MainButton from '../MainButton/MainButton';
 
-import { testActions } from "../../Redux/slice/slice";
 
 function Notification(props) {
 
@@ -14,13 +12,9 @@ function Notification(props) {
         showPriceForm
     } = props;
 
-    const dispatch = useDispatch();
-
-
 
 
     function next() {
-        dispatch(testActions.setData({ value: '', type: 'removeDataClose' }));
         showPriceForm();
     }
 

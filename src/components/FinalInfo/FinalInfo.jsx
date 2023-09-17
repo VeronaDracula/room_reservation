@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import styles from './FinalInfo.module.scss';
 
 import { testActions } from "../../Redux/slice/slice";
-// import {createOrder} from '../../Redux/asyncThunks/createOrder';
 
 import MainButton from '../MainButton/MainButton';
 import BackButton from '../BackButton/BackButton';
@@ -19,22 +18,19 @@ function FinalInfo(props) {
 
     const dispatch = useDispatch();
 
-    const today = new Date();
-
-    const adults = useSelector((state) => state?.test?.data?.amountOfAdults || '');
-    const children = useSelector((state) => state?.test?.data?.amountOfChildren || '');
-    const childrenFive = useSelector((state) => state?.test?.data?.amountOfChildrenFive || '');
-    const nights = useSelector((state) => state?.test?.data?.amountOfNights || '');
+    const adults = useSelector((state) => state?.test?.data?.amountOfAdults || 1);
+    const children = useSelector((state) => state?.test?.data?.amountOfChildren || 0);
+    const childrenFive = useSelector((state) => state?.test?.data?.amountOfChildrenFive || 0);
+    const nights = useSelector((state) => state?.test?.data?.amountOfNights || 0);
     const insuranceStatus = useSelector((state) => state?.test?.data?.insurance || false);
-    const typeOfRoom = useSelector((state) => state?.test?.data?.typeOfRoom || false);
+    const typeOfRoom = useSelector((state) => state?.test?.data?.typeOfRoom || 'Эконом');
 
     const surname = useSelector((state) => state?.test?.data?.surname?.text || '');
     const name = useSelector((state) => state?.test?.data?.name?.text || '');
     const nameOfFather = useSelector((state) => state?.test?.data?.nameOfFather || '');
     const phone = useSelector((state) => state?.test?.data?.phone?.text || '');
-    const date = localStorage.getItem('date');
-    const total = useSelector((state) => state?.test?.data?.total || 0);
-
+    const date = useSelector((state) => state?.test?.data?.date?.text || '');
+    const total = useSelector((state) => state?.test?.data?.total || 1800);
 
     const [insurance, setInsurance] = useState('');
 
@@ -57,13 +53,6 @@ function FinalInfo(props) {
         }
     }
 
-    function subtractYears(date, years) {
-        date.setFullYear(date.getFullYear() - years);
-        return date;
-    }
-
-
-
 
     const getData = () => new Promise(resolve => {
         setTimeout(() => resolve( JSON.stringify( {
@@ -82,13 +71,17 @@ function FinalInfo(props) {
         }) ), 2000)
     })
 
-
+    const today = new Date();
+    function subtractYears(date, years) {
+        date.setFullYear(date.getFullYear() - years);
+        return date;
+    }
 
     function createOrder ()  {
-
         getData().then(data => {
             dispatch(testActions.setData({ value: '', type: 'removeDataClose' }));
-            localStorage.setItem('date', JSON.stringify(subtractYears(today, 18)));
+            dispatch(testActions.setData({ value: {error: false, text: JSON.stringify(subtractYears(today, 18))}, type: 'date' }));
+
             showNotification();
         })
     }
@@ -104,9 +97,9 @@ return (
             <p className={styles.finalInfo__text}>Номер «{typeOfRoom}» на {nights} {declOfNum(nights, ['ночь', 'ночи', 'ночей'])}</p>
             <p className={styles.finalInfo__text}>
                {adults} {declOfNum(adults, ['взрослый', 'взрослых', 'взрослых'])}
-                <span className={`${children > 0 ? '' : styles.inactive}`}>, {children} {declOfNum(adults, ['ребенок', 'ребенка', 'детей'])} от 5 до 12 лет</span>
+                <span className={`${children > 0 ? '' : styles.inactive}`}>, {children} {declOfNum(children, ['ребенок', 'ребенка', 'детей'])} от 5 до 12 лет</span>
                 <span className={`${children > 0 ? '' : styles.inactive}`}>
-                    и {childrenFive} {declOfNum(adults, ['ребенок', 'ребенка', 'детей'])} младше 5 лет</span>
+                    &ensp;и {childrenFive} {declOfNum(childrenFive, ['ребенок', 'ребенка', 'детей'])} младше 5 лет</span>
             </p>
             <p className={styles.finalInfo__text}>{insurance}</p>
             <p className={`${styles.finalInfo__text} ${styles.last}`}>
