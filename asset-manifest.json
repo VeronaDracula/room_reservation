@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/test/static/css/main.a5feb56c.css",
-    "main.js": "/test/static/js/main.750850ab.js",
-    "static/js/787.0c3f432a.chunk.js": "/test/static/js/787.0c3f432a.chunk.js",
-    "static/media/date.svg": "/test/static/media/date.ba53c9a1b8bbe7256b71.svg",
-    "static/media/notification.svg": "/test/static/media/notification.2df18f39c555d8bb25b0.svg",
-    "index.html": "/test/index.html",
-    "static/media/checkbox.svg": "/test/static/media/checkbox.78b1f6065758815e7cb4.svg",
-    "main.a5feb56c.css.map": "/test/static/css/main.a5feb56c.css.map",
-    "main.750850ab.js.map": "/test/static/js/main.750850ab.js.map",
-    "787.0c3f432a.chunk.js.map": "/test/static/js/787.0c3f432a.chunk.js.map"
+    "main.css": "/room_reservation/static/css/main.0b2ca4c5.css",
+    "main.js": "/room_reservation/static/js/main.c0920c71.js",
+    "static/js/787.0c3f432a.chunk.js": "/room_reservation/static/js/787.0c3f432a.chunk.js",
+    "static/media/date.svg": "/room_reservation/static/media/date.9e5a2c5f5480fe32b196.svg",
+    "static/media/notification.svg": "/room_reservation/static/media/notification.ad872fc72cb0f20999e8.svg",
+    "index.html": "/room_reservation/index.html",
+    "static/media/checkbox.svg": "/room_reservation/static/media/checkbox.350580cd92675bfb4406.svg",
+    "main.0b2ca4c5.css.map": "/room_reservation/static/css/main.0b2ca4c5.css.map",
+    "main.c0920c71.js.map": "/room_reservation/static/js/main.c0920c71.js.map",
+    "787.0c3f432a.chunk.js.map": "/room_reservation/static/js/787.0c3f432a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5feb56c.css",
-    "static/js/main.750850ab.js"
+    "static/css/main.0b2ca4c5.css",
+    "static/js/main.c0920c71.js"
   ]
 }
